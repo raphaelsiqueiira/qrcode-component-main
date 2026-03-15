@@ -1,0 +1,72 @@
+:root {
+  --bg-page: hsl(212, 45%, 89%);
+  --bg-card: hsl(0, 0%, 100%);
+  --text-title: hsl(218, 44%, 22%);
+  --text-body: hsl(216, 15%, 48%);
+
+  --font-title: bold 1.375rem/1.2 "Outfit", sans-serif;
+  --font-body: 0.9375rem/1.4 "Outfit", sans-serif;
+
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2.5rem;
+
+  --radius-md: 1.25rem;
+  --card-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: hsl(218 44% 19%);
+    --bg-card: hsl(218 44% 13.1%);
+    --text-title: hsl(0, 0%, 100%);
+    --text-body: hsl(212, 45%, 89%);
+
+    --card-shadow: 1px 1px 4px rgba(0, 66, 148, 0.2);
+  }
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-page);
+  width: 100vw;
+  height: 100vh;
+}
+
+.card {
+  max-width: 320px;
+  border-radius: var(--radius-md);
+  background-color: var(--bg-card);
+  padding: var(--spacing-sm);
+  box-sizing: border-box;
+  box-shadow: var(--card-shadow);
+}
+
+.card__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+}
+
+.card__text-container {
+  padding: 0 var(--spacing-sm);
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.card__title {
+  font: var(--font-title);
+  color: var(--text-title);
+  margin: var(--spacing-md) 0;
+}
+
+.card__text {
+  font: var(--font-body);
+  color: var(--text-body);
+  letter-spacing: 0.2px;
+}
