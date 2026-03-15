@@ -34,9 +34,36 @@
   <button class="btn__accessibility" aria-label="Accessibility settings" type="button" id="btn-accessibility" aria-expanded="false">
   </button>
 
-  <div id="modal-acessibility" class="modal" role="dialog" aria-labelledby="modal-title" aria-modal="true"  aria-hidden="true">
+  <div id="modal-acessibility" class="modal" role="dialog" aria-labelledby="modal-title" aria-modal="true" aria-hidden="true">
     <article>
       <h2 id="modal-title" class="modal__title">Accessibility settings</h2>
+      <section class="modal__options">
+        <form>
+          <div>
+            <h3>Font Size</h3>
+            <div>
+              <label for="small-text">Small</label>
+              <input type="radio" id="small-text" value="small-text" name="font-size">
+              <label for="medium-text">Medium</label>
+              <input type="radio" id="medium-text" value="medium-text" name="font-size">
+              <label for="large-text">Large</label>
+              <input type="radio" id="large-text" value="large-text" name="font-size">
+            </div>
+          </div>
+
+          <div>
+            <h3>Theme Color</h3>
+            <div>
+              <label for="auto-theme">Auto</label>
+              <input type="radio" name="theme-scheme" id="auto-theme" value="auto-theme">
+              <label for="dark-theme">Dark</label>
+              <input type="radio" name="theme-scheme" id="dark-theme" value="dark-theme">
+              <label for="light-theme">Light</label>
+              <input type="radio" name="theme-scheme" id="light-theme" value="light-theme">
+            </div>
+          </div>
+        </form>
+      </section>
     </article>
   </div>
 

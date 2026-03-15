@@ -14,7 +14,7 @@ body {
   background: #2e83f2 url("../images/icon-universal-access.svg") no-repeat center center;
   border-color: #fff;
   cursor: pointer;
-  transition: transform 0.3s;
+  transition:  0.3s;
 }
 
 .btn__accessibility.active {
