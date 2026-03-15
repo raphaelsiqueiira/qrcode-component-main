@@ -12,9 +12,9 @@ body {
   width: 40px;
   height: 40px;
   background: #2e83f2 url("../images/icon-universal-access.svg") no-repeat center center;
-  border-color: #fff;
+  border-color: var(--white);
   cursor: pointer;
-  transition:  0.3s;
+  transition: transform 0.3s;
 }
 
 .btn__accessibility.active {
@@ -35,12 +35,14 @@ body {
   max-width: 600px;
   min-width: 250px;
   height: 60vh;
-  border-radius: 5px;
+  border-radius: var(--radius-md);
   background-color: var(--bg-accesibility-modal);
+  box-shadow: var(--card-shadow);
 }
 
 .modal__title {
   font: var(--font-subtitle);
+  color: var(--text-title);
   padding: var(--spacing-sm);
   text-align: center;
   position: relative;
@@ -52,10 +54,44 @@ body {
   content: "";
   width: 80%;
   height: 2px;
-  background-color: #2e83f2;
+  background-color: var(--clr-deco);
   margin-top: var(--spacing-sm);
   left: 50%;
   transform: translateX(-50%);
+}
+
+.modal__options section {
+  padding: 0 var(--spacing-md);
+}
+
+.modal__options h3 {
+  font: var(--font-subtitle);
+  color: var(--text-title);
+}
+
+.modal__options-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 8px;
+}
+
+.modal__options-container label {
+  display: block;
+  font: var(--font-body);
+  color: var(--text-body);
+  border: 2px solid var(--deco-modal);
+  padding: var(--spacing-sm);
+}
+
+.modal__options-container input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+label.active {
+  background: var(--clr-deco);
+  color: var(--white);
 }
 
 @media (max-width: 400px) {
