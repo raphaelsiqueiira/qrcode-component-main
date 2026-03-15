@@ -1,0 +1,44 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-page);
+  width: 100vw;
+  height: 100vh;
+}
+
+.card {
+  max-width: 320px;
+  border-radius: var(--radius-md);
+  background-color: var(--bg-card);
+  padding: var(--spacing-sm);
+  box-sizing: border-box;
+  box-shadow: var(--card-shadow);
+}
+
+.card__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+}
+
+.card__text-container {
+  padding: 0 var(--spacing-sm);
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.card__title {
+  font: var(--font-title);
+  color: var(--text-title);
+  margin: var(--spacing-md) 0;
+}
+
+.card__text {
+  font: var(--font-body);
+  color: var(--text-body);
+  letter-spacing: 0.2px;
+}

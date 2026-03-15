@@ -1,0 +1,66 @@
+body {
+  position: relative;
+}
+.btn__accessibility {
+  z-index: 20;
+  display: block;
+  content: "";
+  position: absolute;
+  right: 6px;
+  top: 12px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background: #2e83f2 url("../images/icon-universal-access.svg") no-repeat center center;
+  border-color: #fff;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.btn__accessibility.active {
+  background: #2e83f2 url("../images/close.svg") no-repeat center center;
+}
+
+.btn__accessibility:hover {
+  transform: scale(1.1);
+}
+
+.modal {
+  position: absolute;
+  display: none;
+  flex-direction: column;
+  top: 16px;
+  right: 12px;
+  z-index: 10;
+  max-width: 600px;
+  min-width: 250px;
+  height: 60vh;
+  border-radius: 5px;
+  background-color: var(--bg-accesibility-modal);
+}
+
+.modal__title {
+  font: var(--font-subtitle);
+  padding: var(--spacing-sm);
+  text-align: center;
+  position: relative;
+}
+
+.modal__title::after {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 80%;
+  height: 2px;
+  background-color: #2e83f2;
+  margin-top: var(--spacing-sm);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@media (max-width: 400px) {
+  .btn__accessibility {
+    width: 36px;
+    height: 36px;
+  }
+}
