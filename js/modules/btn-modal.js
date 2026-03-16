@@ -1,4 +1,4 @@
-export default class CloseBtn {
+export default class BtnModal {
   constructor(
     modalBtn,
     modal,
@@ -9,6 +9,7 @@ export default class CloseBtn {
     this.modal = document.querySelector(modal);
     this.activeClass = activeClass;
     this.events = events;
+    this.mainElement = document.querySelector("main");
 
     this.bindEvents();
   }
@@ -40,10 +41,10 @@ export default class CloseBtn {
     if (isActive) {
       this.modal.setAttribute("tabindex", "-1");
       this.modal.focus();
-      document.querySelector("main").setAttribute("inert", "");
+      this.mainElement.setAttribute("inert", "");
     } else {
       this.modalBtn.focus();
-      document.querySelector("main").removeAttribute("inert", "");
+      this.mainElement.removeAttribute("inert");
     }
   }
 
