@@ -19,7 +19,7 @@
   /*Acessibility Modal*/
   --bg-accesibility-modal: hsl(0, 0%, 100%);
   --deco-modal: #a3adb8;
-  --clr-deco: #2e83f2aa;
+  --clr-deco: #2e83f2;
 }
 
 @media (prefers-color-scheme: dark) {
