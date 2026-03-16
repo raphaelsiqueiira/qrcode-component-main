@@ -82,11 +82,20 @@ body {
   color: var(--text-body);
   border: 2px solid var(--deco-modal);
   padding: var(--spacing-sm);
+  border-radius: var(--radius-md);
 }
 
 .modal__options-container input[type="radio"] {
   appearance: none;
   -webkit-appearance: none;
+}
+
+label {
+  transition: 0.3s;
+}
+
+label:hover {
+  transform: scale(1.1);
 }
 
 label.active {

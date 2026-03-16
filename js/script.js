@@ -1,4 +1,11 @@
-import CloseBtn from "./modules/close-btn.js";
+import BtnModal from "./modules/btn-modal.js";
+import ModalOptionsRadioControl from "./modules/modal-radio-control.js";
 
-const closeBtn = new CloseBtn("#btn-accessibility", "#modal-acessibility");
-closeBtn.init();
+const btnModal = new BtnModal("#btn-accessibility", "#modal-acessibility");
+btnModal.init();
+
+const modalOptionsRadioControl = new ModalOptionsRadioControl([
+  'input[name="theme-scheme"]',
+  'input[name="font-size"]',
+]);
+modalOptionsRadioControl.init();
