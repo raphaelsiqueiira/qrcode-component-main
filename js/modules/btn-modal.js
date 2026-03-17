@@ -14,7 +14,7 @@ export default class BtnModal {
     this.bindEvents();
   }
 
-    // Adiciona a classse de ativação para altera o ícone do botão
+  // Adiciona a classse de ativação para altera o ícone do botão
   changeBtnIcon(event) {
     // evita de emular o 'click' no mobile, executando apenas o 'touchstart'
     if (event.type === "touchstart") event.preventDefault();
@@ -35,6 +35,13 @@ export default class BtnModal {
     this.changeVisibiliteModal(false);
     this.updateAccessibility(false);
     this.focusOnActive(false);
+  }
+
+  openModal() {
+    this.modalBtn.classList.add(this.activeClass);
+    this.changeVisibiliteModal(true);
+    this.updateAccessibility(true);
+    this.focusOnActive(true);
   }
 
   // Altera a visibiiilidade do modal
@@ -60,11 +67,13 @@ export default class BtnModal {
     }
   }
 
-    // Fecha o modal ao abertar escape
-  handleEscapeKey(event) {
+  // Fecha o modal ao abertar escape
+  handleShortcuKey(event) {
     let isActive = this.modalBtn.classList.contains(this.activeClass);
     if (event.key === "Escape" && isActive) {
       this.closeModal();
+    } else if (event.key === "t" && !isActive) {
+      this.openModal();
     }
   }
 
@@ -73,13 +82,13 @@ export default class BtnModal {
     this.events.forEach((event) => {
       this.modalBtn.addEventListener(event, this.changeBtnIcon);
     });
-    window.addEventListener("keydown", this.handleEscapeKey);
+    window.addEventListener("keydown", this.handleShortcuKey);
   }
 
   // Realize o bind do métodos
   bindEvents() {
     this.changeBtnIcon = this.changeBtnIcon.bind(this);
-    this.handleEscapeKey = this.handleEscapeKey.bind(this);
+    this.handleShortcuKey = this.handleShortcuKey.bind(this);
   }
 
   init() {
