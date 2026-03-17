@@ -19,8 +19,8 @@
     <article class="card">
       <header>
         <picture>
-          <source srcset="./src/images/image-qr-code.jpeg">
-          <img class="card__img" src="./src/images/image-qr-code.webp" alt="QR Code for the Mentor Frontend page" width="576" height="576">
+          <source srcset="./src/images/image-qr-code.webp" type="image/webp">
+          <img class="card__img" src="./src/images/image-qr-code.jpeg" alt="QR Code for the Mentor Frontend page" width="576" height="576">
         </picture>
       </header>
 
@@ -31,13 +31,17 @@
     </article>
   </main>
 
-  <article>
-    <button class="btn__accessibility " aria-label="Accessibility settings" type="button" id="btn-accessibility" aria-expanded="false" aria-controls="modal-acessibility">
-      <img class="btn__accessibility-icon" src="src/images/icon-universal-access.svg" alt="">
+  <aside>
+    <button class="modal__btn-open" id="modal-btn-open" type="button" aria-label="Accessibility Settings Open" aria-expanded="false" aria-controls="modal-accessibility">
+      <picture>
+        <source srcset="src/images/icon-universal-access.svg" type="image/svg">
+        <source srcset="src/images/icon-universal-access.webp" type="image/webp">
+        <img class="modal__btn-open-icon" src="src/images/icon-universal-access.jpeg" alt="" width="640" height="640">
+      </picture>
     </button>
-    <section id="modal-acessibility" class="modal" role="dialog" aria-labelledby="modal-title" aria-modal="false" aria-hidden="true">
-      <h2 id="modal-title" class="modal__title">Accessibility settings</h2>
-      <form class="modal__options">
+
+    <dialog id="modal-accessibility">
+      <form class="modal__options" method="dialog">
         <fieldset class="modal__section">
           <legend class="modal__subtitle">Font Size</legend>
           <div>
@@ -53,11 +57,12 @@
             <label for="large-text">Large</label>
           </div>
         </fieldset>
+
         <fieldset class="modal__section">
           <legend class="modal__subtitle">Theme Color</legend>
           <div class="modal__options-container">
-            <input type="radio" name="theme-scheme" id="auto-theme" value="auto-theme" checked>
-            <label for="auto-theme">Auto</label>
+            <input type="radio" name="theme-scheme" id="auto" value="auto" checked>
+            <label for="auto">Auto</label>
           </div>
           <div>
             <input type="radio" name="theme-scheme" id="dark-theme" value="dark-theme">
@@ -68,11 +73,22 @@
             <label for="light-theme">Light</label>
           </div>
         </fieldset>
-      </form>
-    </section>
-  </article>
 
-  <script src="./dist/main.js"></script>
+        <button class="modal__btn-reset" id="modal-btn-reset" type="button" aria-label="Accessibility settings Reset" aria-controls="modal-accessibility">Reset</button>
+        <button class="modal__btn-close" id="modal-btn-close" type="submit" aria-label="Accessibility settings Close" aria-controls="modal-accessibility">
+          <picture>
+            <source srcset="src/images/close.svg" type="image/svg">
+            <source srcset="src/images/close.webp" type="image/webp">
+            <img class="modal__btn-close-icon" src="src/images/close.jpeg" alt="" width="640" height="640">
+          </picture>
+        </button>
+      </form>
+    </dialog>
+  </aside>
+
+  \
+
+  <!--  <script src="./dist/main.js"></script> -->
 </body>
 
 </html>
