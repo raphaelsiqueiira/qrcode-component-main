@@ -141,6 +141,10 @@ input:focus-visible + label {
     height: 36px;
   }
 
+  .btn__accessibility::after{
+    display: none;    
+  }
+
   .modal {
     max-width: 300px;
   }

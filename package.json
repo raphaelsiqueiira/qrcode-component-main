@@ -18,9 +18,7 @@
     "build:js": "webpack --mode production",
     "build:css": "lightningcss --minify --bundle --targets \">= 0.25%\" src/css/style.css -o dist/style.css",
     "build": "npm run build:js && npm run build:css",
-    "dev:js": "webpack --mode development --watch",
-    "dev:css": "lightningcss --watch src/css/style.css -o dist/style.css",
-    "dev": "npm run dev:js & npm run dev:css"
+    "dev:js": "webpack --mode development --watch"
   },
   "devDependencies": {
     "@babel/core": "^7.29.0",
