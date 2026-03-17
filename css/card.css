@@ -7,10 +7,13 @@ body {
   background-color: var(--bg-page);
   width: 100vw;
   height: 100vh;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
 }
 
 .card {
-  max-width: 320px;
+  max-width: 20rem;
   border-radius: var(--radius-md);
   background-color: var(--bg-card);
   padding: var(--spacing-sm);
@@ -41,4 +44,10 @@ body {
   font: var(--font-body);
   color: var(--text-body);
   letter-spacing: 0.2px;
+}
+
+@media (max-width: 400px) {
+  .card {
+    max-width: 320px;
+  }
 }

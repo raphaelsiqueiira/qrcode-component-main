@@ -23,8 +23,9 @@ export default class SettingsRadioManager {
 
       if (attr === "theme-scheme" && value === "auto") {
         htmlElement.removeAttribute(attr);
+      } else {
+        htmlElement.setAttribute(attr, value);
       }
-      htmlElement.setAttribute(attr, value);
     }
   }
 

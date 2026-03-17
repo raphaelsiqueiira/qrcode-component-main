@@ -14,6 +14,7 @@ export default class BtnModal {
     this.bindEvents();
   }
 
+    // Adiciona a classse de ativação para altera o ícone do botão
   changeBtnIcon(event) {
     // evita de emular o 'click' no mobile, executando apenas o 'touchstart'
     if (event.type === "touchstart") event.preventDefault();
@@ -28,15 +29,26 @@ export default class BtnModal {
     }
   }
 
+  //Fecha o modal
+  closeModal() {
+    this.modalBtn.classList.remove(this.activeClass);
+    this.changeVisibiliteModal(false);
+    this.updateAccessibility(false);
+    this.focusOnActive(false);
+  }
+
+  // Altera a visibiiilidade do modal
   changeVisibiliteModal(isActive) {
     this.modal.style.display = isActive ? "flex" : "none";
   }
 
+  // Atualiza atributos de acessibilidade
   updateAccessibility(isActive) {
     this.modalBtn.setAttribute("aria-expanded", isActive);
     this.modal.setAttribute("aria-hidden", !isActive);
   }
 
+  // Adiciona focus ao modal ou ao main
   focusOnActive(isActive) {
     if (isActive) {
       this.modal.setAttribute("tabindex", "-1");
@@ -48,19 +60,32 @@ export default class BtnModal {
     }
   }
 
-  addEventBtn() {
+    // Fecha o modal ao abertar escape
+  handleEscapeKey(event) {
+    let isActive = this.modalBtn.classList.contains(this.activeClass);
+    if (event.key === "Escape" && isActive) {
+      this.closeModal();
+    }
+  }
+
+  // Adiciona os evento
+  setupEventListeners() {
     this.events.forEach((event) => {
       this.modalBtn.addEventListener(event, this.changeBtnIcon);
     });
+    window.addEventListener("keydown", this.handleEscapeKey);
   }
 
+  // Realize o bind do métodos
   bindEvents() {
     this.changeBtnIcon = this.changeBtnIcon.bind(this);
+    this.handleEscapeKey = this.handleEscapeKey.bind(this);
   }
 
   init() {
     if (this.modalBtn && this.modal) {
-      this.addEventBtn();
+      this.modalBtn.classList.add("js");
+      this.setupEventListeners();
       this.updateAccessibility(false);
     }
     return this;

@@ -31,47 +31,47 @@
     </article>
   </main>
 
-  <button class="btn__accessibility" aria-label="Accessibility settings" type="button" id="btn-accessibility" aria-expanded="false">
+  <button class="btn__accessibility " aria-label="Accessibility settings" type="button" id="btn-accessibility" aria-expanded="false">
   </button>
 
   <article id="modal-acessibility" class="modal" role="dialog" aria-labelledby="modal-title" aria-modal="true" aria-hidden="true">
     <h2 id="modal-title" class="modal__title">Accessibility settings</h2>
     <form class="modal__options">
-      <section>
-        <h3>Font Size</h3>
-        <div class="modal__options-container">
-          <div>
-            <label for="small-text">Small</label>
-            <input type="radio" id="small-text" value="small-text" name="font-size">
-          </div>
-          <div>
-            <label for="medium-text">Medium</label>
-            <input type="radio" id="medium-text" value="medium-text" name="font-size" checked>
-          </div>
-          <div>
-            <label for="large-text">Large</label>
-            <input type="radio" id="large-text" value="large-text" name="font-size">
-          </div>
-        </div>
-      </section>
 
-      <section>
-        <h3>Theme Color</h3>
-        <div class="modal__options-container">
-          <div>
-            <label for="auto-theme">Auto</label>
-            <input type="radio" name="theme-scheme" id="auto-theme" value="auto-theme" checked>
-          </div>
-          <div>
-            <label for="dark-theme">Dark</label>
-            <input type="radio" name="theme-scheme" id="dark-theme" value="dark-theme">
-          </div>
-          <div>
-            <label for="light-theme">Light</label>
-            <input type="radio" name="theme-scheme" id="light-theme" value="light-theme">
-          </div>
+      <fieldset class="modal__section">
+        <legend class="modal__subtitle">Font Size</legend>
+        <div>
+          <input type="radio" id="small-text" value="small-text" name="font-size">
+          <label for="small-text">Small</label>
         </div>
-      </section>
+        <div>
+          <input type="radio" id="medium-text" value="medium-text" name="font-size" checked>
+          <label for="medium-text">Medium</label>
+        </div>
+        <div>
+          <input type="radio" id="large-text" value="large-text" name="font-size">
+          <label for="large-text">Large</label>
+        </div>
+      </fieldset>
+
+
+
+      <fieldset class="modal__section">
+        <legend class="modal__subtitle">Theme Color</legend>
+        <div class="modal__options-container">
+          <input type="radio" name="theme-scheme" id="auto-theme" value="auto-theme" checked>
+          <label for="auto-theme">Auto</label>
+        </div>
+        <div>
+          <input type="radio" name="theme-scheme" id="dark-theme" value="dark-theme">
+          <label for="dark-theme">Dark</label>
+        </div>
+        <div>
+          <input type="radio" name="theme-scheme" id="light-theme" value="light-theme">
+          <label for="light-theme">Light</label>
+        </div>
+      </fieldset>
+
 
     </form>
   </article>
