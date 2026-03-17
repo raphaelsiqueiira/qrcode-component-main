@@ -15,7 +15,7 @@ body {
   border-radius: 50%;
   width: 2.5rem;
   height: 2.5rem;
-  background: #2e83f2 url("../images/icon-universal-access.svg") no-repeat center center;
+  background: #2e83f2 url("../src/images/icon-universal-access.svg") no-repeat center center;
   border-color: var(--white);
   cursor: pointer;
   transition: transform 0.3s;
@@ -41,7 +41,7 @@ body {
 }
 
 .btn__accessibility.active {
-  background: #2e83f2 url("../images/close.svg") no-repeat center center;
+  background: #2e83f2 url("../src/images/close.svg") no-repeat center center;
 }
 
 .btn__accessibility.active::after {

@@ -1,0 +1,37 @@
+{
+  "name": "qrcode-component-main",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/raphaelsiqueiira/qrcode-component-main#readme",
+  "bugs": {
+    "url": "https://github.com/raphaelsiqueiira/qrcode-component-main/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raphaelsiqueiira/qrcode-component-main.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "build:js": "webpack --mode production",
+    "build:css": "lightningcss --minify --bundle --targets \">= 0.25%\" src/css/style.css -o dist/style.css",
+    "build": "npm run build:js && npm run build:css",
+    "dev:js": "webpack --mode development --watch",
+    "dev:css": "lightningcss --watch src/css/style.css -o dist/style.css",
+    "dev": "npm run dev:js & npm run dev:css"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.29.0",
+    "@babel/preset-env": "^7.29.2",
+    "@eslint/js": "^10.0.1",
+    "babel-loader": "^10.1.1",
+    "eslint": "^10.0.3",
+    "globals": "^17.4.0",
+    "lightningcss": "^1.32.0",
+    "lightningcss-cli": "^1.32.0",
+    "webpack": "^5.105.4",
+    "webpack-cli": "^7.0.1"
+  }
+}
