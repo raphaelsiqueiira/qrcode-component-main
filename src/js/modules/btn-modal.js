@@ -25,10 +25,10 @@ export default class BtnModal {
     this.updateAccessibility(isActive);
     if (isActive) {
       this.focusOnActive(true);
-      iconBtn.src = "../src/images/close.svg";
+      iconBtn.src = "./src/images/close.svg";
     } else {
       this.focusOnActive(false);
-      iconBtn.src = "../src/images/icon-universal-access.svg";
+      iconBtn.src = "./src/images/icon-universal-access.svg";
     }
   }
 
@@ -56,6 +56,7 @@ export default class BtnModal {
   updateAccessibility(isActive) {
     this.modalBtn.setAttribute("aria-expanded", isActive);
     this.modal.setAttribute("aria-hidden", !isActive);
+    this.modal.setAttribute("aria-modal", isActive);
   }
 
   // Adiciona focus ao modal ou ao main
