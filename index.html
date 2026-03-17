@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="src/images/favicon-32x32.png">
   <title>Frontend Mentor | QR code component</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,49 +31,45 @@
     </article>
   </main>
 
-  <button class="btn__accessibility " aria-label="Accessibility settings" type="button" id="btn-accessibility" aria-expanded="false" aria-controls="modal-acessibility">
-  </button>
-
-  <article id="modal-acessibility" class="modal" role="dialog" aria-labelledby="modal-title" aria-modal="true" aria-hidden="true">
-    <h2 id="modal-title" class="modal__title">Accessibility settings</h2>
-    <form class="modal__options">
-
-      <fieldset class="modal__section">
-        <legend class="modal__subtitle">Font Size</legend>
-        <div>
-          <input type="radio" id="small-text" value="small-text" name="font-size">
-          <label for="small-text">Small</label>
-        </div>
-        <div>
-          <input type="radio" id="medium-text" value="medium-text" name="font-size" checked>
-          <label for="medium-text">Medium</label>
-        </div>
-        <div>
-          <input type="radio" id="large-text" value="large-text" name="font-size">
-          <label for="large-text">Large</label>
-        </div>
-      </fieldset>
-
-
-
-      <fieldset class="modal__section">
-        <legend class="modal__subtitle">Theme Color</legend>
-        <div class="modal__options-container">
-          <input type="radio" name="theme-scheme" id="auto-theme" value="auto-theme" checked>
-          <label for="auto-theme">Auto</label>
-        </div>
-        <div>
-          <input type="radio" name="theme-scheme" id="dark-theme" value="dark-theme">
-          <label for="dark-theme">Dark</label>
-        </div>
-        <div>
-          <input type="radio" name="theme-scheme" id="light-theme" value="light-theme">
-          <label for="light-theme">Light</label>
-        </div>
-      </fieldset>
-
-
-    </form>
+  <article>
+    <button class="btn__accessibility " aria-label="Accessibility settings" type="button" id="btn-accessibility" aria-expanded="false" aria-controls="modal-acessibility">
+      <img class="btn__accessibility-icon" src="src/images/icon-universal-access.svg" alt="">
+    </button>
+    <section id="modal-acessibility" class="modal" role="dialog" aria-labelledby="modal-title" aria-modal="true" aria-hidden="true">
+      <h2 id="modal-title" class="modal__title">Accessibility settings</h2>
+      <form class="modal__options">
+        <fieldset class="modal__section">
+          <legend class="modal__subtitle">Font Size</legend>
+          <div>
+            <input type="radio" id="small-text" value="small-text" name="font-size">
+            <label for="small-text">Small</label>
+          </div>
+          <div>
+            <input type="radio" id="medium-text" value="medium-text" name="font-size" checked>
+            <label for="medium-text">Medium</label>
+          </div>
+          <div>
+            <input type="radio" id="large-text" value="large-text" name="font-size">
+            <label for="large-text">Large</label>
+          </div>
+        </fieldset>
+        <fieldset class="modal__section">
+          <legend class="modal__subtitle">Theme Color</legend>
+          <div class="modal__options-container">
+            <input type="radio" name="theme-scheme" id="auto-theme" value="auto-theme" checked>
+            <label for="auto-theme">Auto</label>
+          </div>
+          <div>
+            <input type="radio" name="theme-scheme" id="dark-theme" value="dark-theme">
+            <label for="dark-theme">Dark</label>
+          </div>
+          <div>
+            <input type="radio" name="theme-scheme" id="light-theme" value="light-theme">
+            <label for="light-theme">Light</label>
+          </div>
+        </fieldset>
+      </form>
+    </section>
   </article>
 
   <script src="./dist/main.js"></script>

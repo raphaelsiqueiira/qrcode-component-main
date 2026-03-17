@@ -20,12 +20,15 @@ export default class BtnModal {
     if (event.type === "touchstart") event.preventDefault();
 
     const isActive = this.modalBtn.classList.toggle(this.activeClass);
+    const iconBtn = document.querySelector(".btn__accessibility-icon");
     this.changeVisibiliteModal(isActive);
     this.updateAccessibility(isActive);
     if (isActive) {
       this.focusOnActive(true);
+      iconBtn.src = "../src/images/close.svg";
     } else {
       this.focusOnActive(false);
+      iconBtn.src = "../src/images/icon-universal-access.svg";
     }
   }
 
