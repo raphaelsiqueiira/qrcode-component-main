@@ -5,11 +5,17 @@ body {
   margin: 0;
   padding: 0;
   background-color: var(--bg-page);
-  width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   transition:
     background-color 0.3s,
     color 0.3s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body,
+  html {
+    transition-property: none;
+  }
 }
 
 .card {
@@ -44,10 +50,4 @@ body {
   font: var(--font-body);
   color: var(--text-body);
   letter-spacing: 0.2px;
-}
-
-@media (max-width: 400px) {
-  .card {
-    max-width: 320px;
-  }
 }
