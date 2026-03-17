@@ -25,9 +25,9 @@ This is a solution for the [QR Code Component Challenge on Frontend Mentor](http
 
 ### Links
 
-- Solution URL: [Add solution URL] [Add production site URL here](https://raphaelsiqueiira.github.io/qrcode-component-main/)
+- [Solution URL](https://www.frontendmentor.io/solutions/qr-code-component-iVV9UBRkil)
 
-- Production site URL: [Add production site URL here](https://raphaelsiqueiira.github.io/qrcode-component-main/)
+- [Production site URL](https://raphaelsiqueiira.github.io/qrcode-component-main/)
 
 ## My Process
 
