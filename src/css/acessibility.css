@@ -6,7 +6,6 @@ body {
   display: none;
 }
 
-
 .js .modal__btn-open.active,
 .js .modal__btn-close.active {
   display: block;
@@ -69,7 +68,6 @@ body {
 }
 
 .modal__accessibility {
-  display: none;
   position: fixed;
   right: 1rem;
   top: 1rem;
@@ -121,6 +119,7 @@ body {
 .modal__options {
   display: flex;
   flex-direction: column;
+  padding-top: var(--spacing-md);
   gap: var(--spacing-md);
 }
 

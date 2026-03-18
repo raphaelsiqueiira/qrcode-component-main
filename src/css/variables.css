@@ -34,7 +34,7 @@
   }
 }
 
-html[theme-scheme="dark-theme"] {
+html[data-theme="dark-theme"] {
   --bg-page: hsl(218 44% 19%);
   --bg-card: hsl(218 44% 13.1%);
   --text-title: hsl(0, 0%, 100%);
@@ -44,7 +44,7 @@ html[theme-scheme="dark-theme"] {
   --bg-accesibility-modal: hsl(218 44% 13.1%);
 }
 
-html[theme-scheme="light-theme"] {
+html[data-theme="light-theme"] {
   --bg-page: hsl(212, 45%, 89%);
   --bg-card: hsl(0, 0%, 100%);
   --text-title: hsl(218, 44%, 22%);
@@ -58,13 +58,13 @@ html {
   transition: font-size 0.3s;
 }
 
-html[font-size="small-text"] {
+html[data-font-size="small-text"] {
   font-size: 75%;
 }
 
-html[font-size="medium-text"] {
+html[data-font-size="medium-text"] {
   font-size: 100%;
 }
-html[font-size="large-text"] {
+html[data-font-size="large-text"] {
   font-size: 120%;
 }

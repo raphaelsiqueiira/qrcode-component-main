@@ -1,105 +1,92 @@
 export default class BtnModal {
   constructor(
-    modalBtn,
     modal,
-    activeClass = "active",
+    btnOpenModal = '[data-modal="btn-open"]',
+    btnCloseModal = '[data-modal="btn-close"]',
+    activeClass = "active", // btnOpen deve estar contendo a classe de ativacao
     events = ["click", "touchstart"]
   ) {
-    this.modalBtn = document.querySelector(modalBtn);
+    this.btnOpenModal = document.querySelector(btnOpenModal);
+    this.btnCloseModal = document.querySelector(btnCloseModal);
     this.modal = document.querySelector(modal);
     this.activeClass = activeClass;
     this.events = events;
-    this.mainElement = document.querySelector("main");
+    this.htmlElement = document.querySelector("html");
 
     this.bindEvents();
   }
 
-  // Adiciona a classse de ativação para altera o ícone do botão
-  changeBtnIcon(event) {
-    // evita de emular o 'click' no mobile, executando apenas o 'touchstart'
-    if (event.type === "touchstart") event.preventDefault();
+  syncState() {
+    const isOpen = this.modal.open;
 
-    const isActive = this.modalBtn.classList.toggle(this.activeClass);
-    const iconBtn = document.querySelector(".btn__accessibility-icon");
-    this.changeVisibiliteModal(isActive);
-    this.updateAccessibility(isActive);
-    if (isActive) {
-      this.focusOnActive(true);
-      iconBtn.src = "./src/images/close.svg";
-    } else {
-      this.focusOnActive(false);
-      iconBtn.src = "./src/images/icon-universal-access.svg";
-    }
+    //sincronica as classes dos botões
+    this.changeBtn(isOpen);
+
+    // Atualiza os atributos de acessibilidade
+    this.updateAccessibility(isOpen);
   }
 
-  //Fecha o modal
-  closeModal() {
-    this.modalBtn.classList.remove(this.activeClass);
-    this.changeVisibiliteModal(false);
-    this.updateAccessibility(false);
-    this.focusOnActive(false);
-  }
-
-  openModal() {
-    this.modalBtn.classList.add(this.activeClass);
-    this.changeVisibiliteModal(true);
-    this.updateAccessibility(true);
-    this.focusOnActive(true);
-  }
-
-  // Altera a visibiiilidade do modal
-  changeVisibiliteModal(isActive) {
-    this.modal.style.display = isActive ? "flex" : "none";
+  // Adiciona a classse de ativação para a visibilidade do botão e do modal
+  changeBtn(isOpen) {
+    this.btnOpenModal.classList.toggle(this.activeClass, !isOpen);
+    this.btnCloseModal.classList.toggle(this.activeClass, isOpen);
   }
 
   // Atualiza atributos de acessibilidade
-  updateAccessibility(isActive) {
-    this.modalBtn.setAttribute("aria-expanded", isActive);
-    this.modal.setAttribute("aria-hidden", !isActive);
-    this.modal.setAttribute("aria-modal", isActive);
+  updateAccessibility(isOpen) {
+    this.btnOpenModal.setAttribute("aria-expanded", isOpen);
+    this.modal.setAttribute("aria-hidden", !isOpen);
   }
 
-  // Adiciona focus ao modal ou ao main
-  focusOnActive(isActive) {
-    if (isActive) {
-      this.modal.setAttribute("tabindex", "-1");
-      this.modal.focus();
-      this.mainElement.setAttribute("inert", "");
+  // Altera a visibilidade do modal
+  changeVisibiliteModal(event) {
+    if (event) event.preventDefault();
+
+    if (this.modal.open) {
+      this.modal.close(); // O evento nativo "close" fará o syncState rodar
     } else {
-      this.modalBtn.focus();
-      this.mainElement.removeAttribute("inert");
+      this.modal.showModal();
+      this.syncState(); // Chama o metodo nativo sync manualmente ao abrir
     }
   }
 
-  // Fecha o modal ao abertar escape
+  // Trata atalhos do teclado
   handleShortcuKey(event) {
-    let isActive = this.modalBtn.classList.contains(this.activeClass);
-    if (event.key === "Escape" && isActive) {
-      this.closeModal();
-    } else if (event.key === "t" && !isActive) {
-      this.openModal();
+    const isActive = this.modal.open;
+
+    if (event.key.toLowerCase() === "t" && !isActive) {
+      this.changeVisibiliteModal();
     }
   }
 
-  // Adiciona os evento
+  // Adiciona os eventos
   setupEventListeners() {
     this.events.forEach((event) => {
-      this.modalBtn.addEventListener(event, this.changeBtnIcon);
+      this.btnOpenModal.addEventListener(event, this.changeVisibiliteModal);
+      this.btnCloseModal.addEventListener(event, this.changeVisibiliteModal);
     });
     window.addEventListener("keydown", this.handleShortcuKey);
+    this.modal.addEventListener("close", this.syncState);
   }
 
   // Realize o bind do métodos
   bindEvents() {
-    this.changeBtnIcon = this.changeBtnIcon.bind(this);
+    this.changeVisibiliteModal = this.changeVisibiliteModal.bind(this);
     this.handleShortcuKey = this.handleShortcuKey.bind(this);
+    this.syncState = this.syncState.bind(this);
   }
 
   init() {
-    if (this.modalBtn && this.modal) {
-      this.modalBtn.classList.add("js");
+    if (!this.modal) {
+      console.error("Não foi encontrado nenhum modal com o seletor informado");
+    } else if (!this.btnOpenModal || !this.btnCloseModal) {
+      console.error(
+        "Não foi encontrado nenhum seletor para o botão de abertura e fechamento informados"
+      );
+    } else {
+      this.htmlElement.classList.add("js");
+      this.bindEvents();
       this.setupEventListeners();
-      this.updateAccessibility(false);
     }
     return this;
   }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="js">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./dist/style.css">
+  <link rel="stylesheet" href="./src/css/style.css">
 
 </head>
 
@@ -32,7 +32,7 @@
   </main>
 
   <aside>
-    <button class="modal__btn-open" id="modal-btn-open" type="button" aria-label="Accessibility Settings Open" aria-expanded="false" aria-controls="modal-accessibility" data-modal="btn-open">
+    <button class="modal__btn-open active" id="modal-btn-open" type="button" aria-label="Accessibility Settings Open" aria-expanded="false" aria-controls="modal-accessibility" data-modal="btn-open">
       <picture>
         <source srcset="src/images/icon-universal-access.svg" type="image/svg">
         <source srcset="src/images/icon-universal-access.webp" type="image/webp">
@@ -89,14 +89,8 @@
   </aside>
 
 
-  <script>
-    const dialog = document.querySelector('dialog')
-    function abrirModal() {
-      dialog.showModal()
-    };
-    abrirModal()
-  </script>
-  <!--  <script src="./dist/main.js"></script> -->
+
+  <script type='module' src="./src/js/script.js"></script>
 </body>
 
 </html>
