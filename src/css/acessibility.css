@@ -1,19 +1,18 @@
 body {
   position: relative;
 }
-.modal__btn-open {
+.modal__btn-open,
+.modal__btn-close {
   display: none;
 }
 
-.modal__btn-close {
-}
 
-.js .modal__btn-open,
-.modal__btn-close {
+.js .modal__btn-open.active,
+.js .modal__btn-close.active {
   display: block;
   position: absolute;
-  right: 12px;
-  top: 12px;
+  right: 1rem;
+  top: 1rem;
   width: 2.5rem;
   height: 2.5rem;
   z-index: 10;
@@ -70,11 +69,13 @@ body {
 }
 
 .modal__accessibility {
-  position: absolute;
-  top: 16px;
-  right: 12px;
-  z-index: 20;
+  display: none;
+  position: fixed;
+  right: 1rem;
+  top: 1rem;
   margin: 0;
+  margin-left: auto;
+  z-index: 20;
   max-width: 37.5rem;
   min-width: 15.625rem;
   height: max-content;
@@ -85,12 +86,31 @@ body {
   border: none;
 }
 
+.modal__accessibility::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+}
+
 .modal__title {
   font: var(--font-subtitle);
   color: var(--text-title);
   padding: 0 var(--spacing-sm);
   text-align: center;
   position: relative;
+  margin: var(--spacing-lg);
+}
+
+.modal__title::after {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 80%;
+  height: 2px;
+  background-color: var(--clr-deco);
+  margin-top: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .modal__subtitle {
@@ -157,31 +177,3 @@ input:focus-visible + label {
     display: none;
   }
 }
-
-/*
-.modal__btn-close {
-}
-
-.modal {
-  display: none;
-  flex-direction: column;
-}
-.modal__title::after {
-  position: absolute;
-  display: block;
-  content: "";
-  width: 80%;
-  height: 2px;
-  background-color: var(--clr-deco);
-  margin-top: var(--spacing-sm);
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-
-
-
-
-
-
- */
