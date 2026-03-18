@@ -47,15 +47,15 @@
           <legend class="modal__subtitle">Font Size</legend>
           <div>
             <input type="radio" id="small-text" value="small-text" name="font-size">
-            <label for="small-text">Small</label>
+            <label for="small-text" class="modal__input-radio">Small</label>
           </div>
           <div>
             <input type="radio" id="medium-text" value="medium-text" name="font-size" checked>
-            <label for="medium-text">Medium</label>
+            <label for="medium-text" class="modal__input-radio">Medium</label>
           </div>
           <div>
             <input type="radio" id="large-text" value="large-text" name="font-size">
-            <label for="large-text">Large</label>
+            <label for="large-text" class="modal__input-radio">Large</label>
           </div>
         </fieldset>
 
@@ -63,15 +63,23 @@
           <legend class="modal__subtitle">Theme Color</legend>
           <div class="modal__options-container">
             <input type="radio" name="theme-scheme" id="auto" value="auto" checked>
-            <label for="auto">Auto</label>
+            <label for="auto" class="modal__input-radio">Auto</label>
           </div>
           <div>
             <input type="radio" name="theme-scheme" id="dark-theme" value="dark-theme">
-            <label for="dark-theme">Dark</label>
+            <label for="dark-theme" class="modal__input-radio">Dark</label>
           </div>
           <div>
             <input type="radio" name="theme-scheme" id="light-theme" value="light-theme">
-            <label for="light-theme">Light</label>
+            <label for="light-theme" class="modal__input-radio">Light</label>
+          </div>
+        </fieldset>
+        <fieldset class="modal__section-check">
+          <div class="modal__checkbox-container">
+            <input type="checkbox" name="animation_preference" id="animation_preference">
+            <label for="animation_preference" class="modal__label-checkbox">
+              Disable animations
+            </label>
           </div>
         </fieldset>
 

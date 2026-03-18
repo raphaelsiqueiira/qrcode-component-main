@@ -39,9 +39,6 @@ html[data-theme="dark-theme"] {
   --bg-card: hsl(218 44% 13.1%);
   --text-title: hsl(0, 0%, 100%);
   --text-body: hsl(212, 45%, 89%);
-
-  /*Acessibility Modal*/
-  --bg-accesibility-modal: hsl(218 44% 13.1%);
 }
 
 html[data-theme="light-theme"] {
@@ -49,9 +46,6 @@ html[data-theme="light-theme"] {
   --bg-card: hsl(0, 0%, 100%);
   --text-title: hsl(218, 44%, 22%);
   --text-body: hsl(216, 15%, 48%);
-
-  /*Acessibility Modal*/
-  --bg-accesibility-modal: hsl(0, 0%, 100%);
 }
 
 html {
