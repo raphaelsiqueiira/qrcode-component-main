@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="js">
 
 <head>
   <meta charset="UTF-8">
@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="dist/style.css">
+  <link rel="stylesheet" href="src/css/style.css">
 
 </head>
 
@@ -30,9 +30,9 @@
       </section>
     </article>
   </main>
-<!-- 
+
   <aside>
-    <button class="modal__btn-open" id="modal-btn-open" type="button" aria-label="Accessibility Settings Open" aria-expanded="false" aria-controls="modal-accessibility">
+    <button class="modal__btn-open" id="modal-btn-open" type="button" aria-label="Accessibility Settings Open" aria-expanded="false" aria-controls="modal-accessibility" data-modal="btn-open">
       <picture>
         <source srcset="src/images/icon-universal-access.svg" type="image/svg">
         <source srcset="src/images/icon-universal-access.webp" type="image/webp">
@@ -40,7 +40,8 @@
       </picture>
     </button>
 
-    <dialog id="modal-accessibility">
+    <dialog id="modal-accessibility" class="modal__accessibility">
+      <h3 class="modal__title">Accessibility Settings</h3>
       <form class="modal__options" method="dialog">
         <fieldset class="modal__section">
           <legend class="modal__subtitle">Font Size</legend>
@@ -75,19 +76,26 @@
         </fieldset>
 
         <button class="modal__btn-reset" id="modal-btn-reset" type="button" aria-label="Accessibility settings Reset" aria-controls="modal-accessibility">Reset</button>
-        <button class="modal__btn-close" id="modal-btn-close" type="submit" aria-label="Accessibility settings Close" aria-controls="modal-accessibility">
+
+        <button class="modal__btn-close" id="modal-btn-close" type="submit" aria-label="Accessibility settings Close" aria-controls="modal-accessibility" data-modal="btn-close">
           <picture>
             <source srcset="src/images/close.svg" type="image/svg">
             <source srcset="src/images/close.webp" type="image/webp">
-            <img class="modal__btn-close-icon" src="src/images/close.jpeg" alt="" width="640" height="640">
+            <img class="modal__btn-close-icon" src="src/images/close.jpeg" alt="" width="640" height="640" loading="lazy">
           </picture>
         </button>
       </form>
     </dialog>
   </aside>
 
-   -->
 
+  <script>
+    const dialog = document.querySelector('dialog')
+    function abrirModal() {
+      dialog.showModal()
+    };
+    abrirModal()
+  </script>
   <!--  <script src="./dist/main.js"></script> -->
 </body>
 

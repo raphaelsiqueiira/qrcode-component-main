@@ -12,9 +12,9 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  body,
-  html {
-    transition-property: none;
+  * {
+    transition-property: none !important;
+    scale: 1 !important;
   }
 }
 

@@ -1,32 +1,40 @@
-/* body {
+body {
   position: relative;
 }
-.btn__accessibility {
+.modal__btn-open {
   display: none;
 }
 
-.js.btn__accessibility {
-  z-index: 20;
-  display: block;
-  content: "";
-  position: absolute;
-  right: 6px;
-  top: 12px;
-  border-radius: 50%;
-  width: 2.5rem;
-  height: 2.5rem;
-  background: var(--clr-deco);
-  border-color: var(--white);
-  cursor: pointer;
-  transition: transform 0.3s;
+.modal__btn-close {
 }
 
-.btn__accessibility::after {
+.js .modal__btn-open,
+.modal__btn-close {
+  display: block;
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  width: 2.5rem;
+  height: 2.5rem;
+  z-index: 10;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: scale 0.3s;
+}
+
+.modal__btn-open:hover,
+.modal__btn-close:hover {
+  scale: 1.1;
+}
+
+.modal__btn-open::after,
+.modal__btn-close::after {
   position: absolute;
   content: "T";
   background-color: var(--clr-deco);
   border-radius: 50%;
-  color: #fff;
+  color: var(--white);
   bottom: -20px;
   left: 0px;
   width: 1.5rem;
@@ -35,58 +43,65 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: sans-serif;
+  font: var(--font-body);
   font-size: 0.75rem;
   font-weight: bold;
 }
 
-.btn__accessibility.active {
-  background: var(--clr-deco);
+.modal__btn-open img,
+.modal__btn-close img {
+  box-sizing: border-box;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: var(--clr-deco);
+  border-radius: var(--radius-md);
+  padding: 4px;
+  border-radius: 50%;
 }
 
-.btn__accessibility.active::after {
+.modal__btn-close img {
+  width: 2.15rem;
+  height: 2.15rem;
+}
+
+.modal__btn-close::after {
   content: "ESC";
-  font-size: 0.5rem;
+  font-size: 0.6rem;
 }
 
-.btn__accessibility:hover {
-  transform: scale(1.1);
-}
-
-.modal {
+.modal__accessibility {
   position: absolute;
-  display: none;
-  flex-direction: column;
   top: 16px;
   right: 12px;
-  z-index: 10;
-  max-width: 600px;
-  min-width: 250px;
+  z-index: 20;
+  margin: 0;
+  max-width: 37.5rem;
+  min-width: 15.625rem;
   height: max-content;
   border-radius: var(--radius-md);
   background-color: var(--bg-accesibility-modal);
   box-shadow: var(--card-shadow);
-  padding: 0 var(--spacing-md);
+  padding: var(--spacing-md);
+  border: none;
 }
 
 .modal__title {
   font: var(--font-subtitle);
   color: var(--text-title);
-  padding: var(--spacing-sm);
+  padding: 0 var(--spacing-sm);
   text-align: center;
   position: relative;
 }
 
-.modal__title::after {
-  position: absolute;
-  display: block;
-  content: "";
-  width: 80%;
-  height: 2px;
-  background-color: var(--clr-deco);
-  margin-top: var(--spacing-sm);
-  left: 50%;
-  transform: translateX(-50%);
+.modal__subtitle {
+  font: var(--font-subtitle);
+  color: var(--text-title);
+}
+
+.modal__options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
 }
 
 .modal__section {
@@ -98,11 +113,6 @@
   padding: var(--spacing-md) 0;
 }
 
-.modal__subtitle {
-  font: var(--font-subtitle);
-  color: var(--text-title);
-}
-
 .modal__section label {
   display: block;
   font: var(--font-body);
@@ -110,7 +120,7 @@
   border: 2px solid var(--deco-modal);
   padding: var(--spacing-sm);
   border-radius: var(--radius-md);
-  transition: 0.3s;
+  transition: transform 0.3s;
 }
 
 label:hover {
@@ -132,28 +142,46 @@ label.active {
 
 input:focus-visible + label {
   outline: 2px solid var(--clr-deco);
+  border: 2px solid var(--clr-deco);
   outline-offset: 2px;
+  transform: scale(1.1);
 }
 
-@media (min-width: 400px) {
-  .btn__accessibility {
+@media (max-width: 25rem) {
+  .modal__btn-open {
     width: 2.25rem;
     height: 2.25rem;
   }
 
-  .btn__accessibility::after {
+  .modal__btn-open::after {
     display: none;
   }
-
-  .modal {
-    max-width: 300px;
-  }
-
-  .modal__section {
-    display: flex;
-    justify-content: start;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
 }
+
+/*
+.modal__btn-close {
+}
+
+.modal {
+  display: none;
+  flex-direction: column;
+}
+.modal__title::after {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 80%;
+  height: 2px;
+  background-color: var(--clr-deco);
+  margin-top: var(--spacing-sm);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+
+
+
+
+
  */
