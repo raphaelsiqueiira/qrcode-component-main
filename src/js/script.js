@@ -1,12 +1,13 @@
 import BtnModal from "./modules/btn-modal.js";
-/* import SettingsRadioManager from "./modules/settings-radio-manager.js";
- */
+import SettingsManager from "./modules/settings-manager.js";
+
 const btnModal = new BtnModal("#modal-accessibility");
 btnModal.init();
 
-/* const settingsRadioManager = new SettingsRadioManager([
+const seletores = [
   'input[name="theme-scheme"]',
   'input[name="font-size"]',
-]);
-settingsRadioManager.init();
- */
+  "animation_preference",
+];
+const settingsManager = new SettingsManager(seletores);
+settingsManager.init();
