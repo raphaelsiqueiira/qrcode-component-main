@@ -35,7 +35,6 @@ export default class BtnModal {
   // Atualiza atributos de acessibilidade
   updateAccessibility(isOpen) {
     this.btnOpenModal.setAttribute("aria-expanded", isOpen);
-    this.modal.setAttribute("aria-hidden", !isOpen);
   }
 
   // Altera a visibilidade do modal
