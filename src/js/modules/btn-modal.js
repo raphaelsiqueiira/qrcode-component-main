@@ -83,7 +83,7 @@ export default class BtnModal {
         "Não foi encontrado nenhum seletor para o botão de abertura e fechamento informados"
       );
     } else {
-      this.htmlElement.classList.add("js");
+      this.htmlElement.dataset.js = "";
       this.bindEvents();
       this.setupEventListeners();
     }
