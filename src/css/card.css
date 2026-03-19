@@ -46,7 +46,7 @@ body {
   letter-spacing: 0.2px;
 }
 
-@media (min-width: 375px) {
+@media (max-width: 375px) {
   html[data-font-size="large-text"] {
     font-size: 110%;
   }
