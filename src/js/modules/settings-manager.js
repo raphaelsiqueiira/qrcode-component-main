@@ -62,7 +62,6 @@ export default class SettingsManager {
         // Atualiza a classe active no label correspondente
         const label = document.querySelector(`label[for="${input.id}"]`);
         label?.classList.toggle("active", input.checked);
-        console.log("ola");
       } else if (input.type === "checkbox") {
         input.checked = value;
       }

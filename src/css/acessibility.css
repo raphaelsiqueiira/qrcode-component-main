@@ -233,7 +233,8 @@ input[type="checkbox"]:focus-visible + .modal__label-checkbox:before {
     height: 2.25rem;
   }
 
-  .modal__btn-open::after {
+  .modal__btn-open::after,
+  .modal__btn-close::after {
     display: none;
   }
 
