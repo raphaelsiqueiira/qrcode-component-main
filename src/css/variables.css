@@ -64,9 +64,10 @@ html[data-font-size="large-text"] {
   font-size: 120%;
 }
 
-[data-disable-animations] *,
-[data-disable-animations] *:before,
-[data-disable-animations] *:after {
+html[data-disable-animations] *,
+html[data-disable-animations] *:before,
+html[data-disable-animations] *:after {
+  transition: 0 !important;
   transition-duration: 0s !important;
   animation-duration: 0s !important;
 }
