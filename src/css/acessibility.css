@@ -53,8 +53,7 @@ body {
   width: 2.5rem;
   height: 2.5rem;
   background-color: var(--clr-deco);
-  border-radius: var(--radius-md);
-  padding: 4px;
+  padding: 0.25rem;
   border-radius: 50%;
 }
 
@@ -86,7 +85,7 @@ body {
 }
 
 .modal__accessibility::backdrop {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--blur-bg-modal);
   backdrop-filter: blur(4px);
 }
 
