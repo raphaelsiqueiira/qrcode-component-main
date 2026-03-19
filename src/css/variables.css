@@ -67,7 +67,7 @@ html[data-font-size="large-text"] {
 html[data-disable-animations] *,
 html[data-disable-animations] *:before,
 html[data-disable-animations] *:after {
-  transition: 0 !important;
+  transition: 0s !important;
   transition-duration: 0s !important;
   animation-duration: 0s !important;
 }
