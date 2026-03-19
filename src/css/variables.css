@@ -49,7 +49,7 @@ html[data-theme="light-theme"] {
   --text-body: hsl(216, 15%, 48%);
 }
 
-html {
+html:not([data-disable-animations]) {
   transition: font-size 0.3s;
 }
 
