@@ -25,7 +25,7 @@ body {
   display: block;
   width: 100%;
   height: auto;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
 }
 
 .card__text-container {
@@ -37,7 +37,7 @@ body {
 .card__title {
   font: var(--font-title);
   color: var(--text-title);
-  margin: var(--spacing-md) 0;
+  margin: var(--spacing-sm) 0;
 }
 
 .card__text {
