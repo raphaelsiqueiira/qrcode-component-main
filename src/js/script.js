@@ -7,7 +7,7 @@ btnModal.init();
 const seletores = [
   'input[name="theme-scheme"]',
   'input[name="font-size"]',
-  "animation_preference",
+  'input[name="animation-preference"]',
 ];
 const settingsManager = new SettingsManager(seletores);
 settingsManager.init();

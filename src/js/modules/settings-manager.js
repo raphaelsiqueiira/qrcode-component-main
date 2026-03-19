@@ -6,11 +6,13 @@ export default class SettingsManager {
     this.storageKey = "userPreferences";
 
     // Estado Inicial
-    this.preferences = {
+    this.defaultPreferences = {
       "theme-scheme": "auto",
       "font-size": "medium-text",
       "animation-preference": false,
     };
+
+    this.preferences = { ...this.defaultPreferences };
 
     this.bindElements();
   }
@@ -20,19 +22,19 @@ export default class SettingsManager {
     // Tema
     const theme = this.preferences["theme-scheme"];
     if (theme === "auto") {
-      this.html.removeAttribute("data-theme");
+      delete this.html.dataset.theme;
     } else {
-      this.html.setAttribute("data-theme", theme);
+      this.html.dataset.theme = theme;
     }
 
     // Fonte
-    this.html.setAttribute("data-font-size", this.preferences["font-size"]);
+    this.html.dataset.fontSize = this.preferences["font-size"];
 
     // Animações
     if (this.preferences["animation-preference"]) {
-      this.html.setAttribute("data-disable-animations");
+      this.html.dataset.disableAnimations = "";
     } else {
-      this.html.removeAttribute("data-disable-animations");
+      delete this.html.dataset.disableAnimations;
     }
   }
 
@@ -45,7 +47,7 @@ export default class SettingsManager {
   loadFromStorage() {
     const saved = localStorage.getItem(this.storageKey);
     if (saved) {
-      this.preferences = { ...this.preferences, ...JSON.parse.Saved };
+      this.preferences = { ...this.preferences, ...JSON.parse(saved) };
       this.syncInputs();
       this.applyPreferences();
     }
@@ -60,6 +62,7 @@ export default class SettingsManager {
         // Atualiza a classe active no label correspondente
         const label = document.querySelector(`label[for="${input.id}"]`);
         label?.classList.toggle("active", input.checked);
+        console.log("ola");
       } else if (input.type === "checkbox") {
         input.checked = value;
       }
@@ -76,8 +79,10 @@ export default class SettingsManager {
   }
 
   resetSettings() {
+    this.preferences = { ...this.defaultPreferences };
     localStorage.removeItem(this.storageKey);
-    location.reload();
+    this.applyPreferences();
+    this.syncInputs();
   }
 
   // Adiciona o evento a todos os radios

@@ -11,13 +11,6 @@ body {
     color 0.3s;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  * {
-    transition-property: none !important;
-    scale: 1 !important;
-  }
-}
-
 .card {
   max-width: 20rem;
   border-radius: var(--radius-md);
@@ -50,4 +43,10 @@ body {
   font: var(--font-body);
   color: var(--text-body);
   letter-spacing: 0.2px;
+}
+
+@media (max-width: 375px) {
+  html[data-font-size="large-text"] {
+    font-size: 110%;
+  }
 }

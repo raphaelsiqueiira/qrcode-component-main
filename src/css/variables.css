@@ -62,3 +62,10 @@ html[data-font-size="medium-text"] {
 html[data-font-size="large-text"] {
   font-size: 120%;
 }
+
+[data-disable-animations] *,
+[data-disable-animations] *:before,
+[data-disable-animations] *:after {
+  transition-duration: 0s !important;
+  animation-duration: 0s !important;
+}
