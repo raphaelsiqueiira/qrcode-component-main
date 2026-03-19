@@ -6,8 +6,8 @@ body {
   display: none;
 }
 
-.js .modal__btn-open.active,
-.js .modal__btn-close.active {
+[data-js] .modal__btn-open.active,
+[data-js] .modal__btn-close.active {
   display: block;
   position: absolute;
   right: 1rem;
