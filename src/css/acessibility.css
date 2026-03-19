@@ -226,7 +226,7 @@ input[type="checkbox"]:focus-visible + .modal__label-checkbox:before {
   background: var(--clr-deco);
 }
 
-@media (max-width: 25rem) {
+@media (max-width: 500px) {
   .modal__btn-open {
     width: 2.25rem;
     height: 2.25rem;
