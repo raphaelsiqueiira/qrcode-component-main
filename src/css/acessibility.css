@@ -1,80 +1,102 @@
 body {
   position: relative;
 }
-.btn__accessibility {
+.modal__btn-open,
+.modal__btn-close {
   display: none;
 }
 
-.js.btn__accessibility {
-  z-index: 20;
+.js .modal__btn-open.active,
+.js .modal__btn-close.active {
   display: block;
-  content: "";
   position: absolute;
-  right: 6px;
-  top: 12px;
-  border-radius: 50%;
+  right: 1rem;
+  top: 1rem;
   width: 2.5rem;
   height: 2.5rem;
-  background: #2e83f2;
-  border-color: var(--white);
+  z-index: 10;
+  background-color: transparent;
+  border: none;
   cursor: pointer;
-  transition: transform 0.3s;
+  transition: scale 0.3s;
 }
 
-.btn__accessibility::after {
+.modal__btn-open:hover,
+.modal__btn-close:hover {
+  scale: 1.1;
+}
+
+.modal__btn-open::after,
+.modal__btn-close::after {
   position: absolute;
   content: "T";
   background-color: var(--clr-deco);
   border-radius: 50%;
-  color: #fff;
-  bottom: -20px;
-  left: 0px;
-  width: 24px;
-  height: 24px;
+  color: var(--white);
+  bottom: -1.25rem;
+  left: 50%;
+  transform: translateX(-70%);
+  width: 1.5rem;
+  height: 1.5rem;
   border: 2px solid var(--white);
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: sans-serif;
+  font: var(--font-body);
   font-size: 0.75rem;
   font-weight: bold;
 }
 
-.btn__accessibility.active {
-  background: #2e83f2;
-}
-
-.btn__accessibility.active::after {
-  content: "ESC";
-  font-size: 0.5rem;
-}
-
-.btn__accessibility:hover {
-  transform: scale(1.1);
-}
-
-.modal {
-  position: absolute;
-  display: none;
-  flex-direction: column;
-  top: 16px;
-  right: 12px;
-  z-index: 10;
-  max-width: 600px;
-  min-width: 250px;
-  height: max-content;
+.modal__btn-open img,
+.modal__btn-close img {
+  box-sizing: border-box;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: var(--clr-deco);
   border-radius: var(--radius-md);
-  background-color: var(--bg-accesibility-modal);
+  padding: 4px;
+  border-radius: 50%;
+}
+
+.modal__btn-close img {
+  width: 2.15rem;
+  height: 2.15rem;
+}
+
+.modal__btn-close::after {
+  content: "ESC";
+  font-size: 0.6rem;
+}
+
+.modal__accessibility {
+  position: fixed;
+  right: 1rem;
+  top: 1rem;
+  margin: 0;
+  margin-left: auto;
+  z-index: 20;
+  max-width: 37.5rem;
+  min-width: auto;
+  box-sizing: border-box;
+  border-radius: var(--radius-md);
+  background-color: var(--bg-page);
   box-shadow: var(--card-shadow);
-  padding: 0 var(--spacing-md);
+  padding: var(--spacing-md);
+  border: none;
+}
+
+.modal__accessibility::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
 }
 
 .modal__title {
   font: var(--font-subtitle);
   color: var(--text-title);
-  padding: var(--spacing-sm);
+  padding: 0 var(--spacing-sm);
   text-align: center;
   position: relative;
+  margin: var(--spacing-lg);
 }
 
 .modal__title::after {
@@ -85,11 +107,24 @@ body {
   height: 2px;
   background-color: var(--clr-deco);
   margin-top: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
   left: 50%;
   transform: translateX(-50%);
 }
 
-.modal__section {
+.modal__subtitle {
+  font: var(--font-subtitle);
+  color: var(--text-title);
+}
+
+.modal__options {
+  display: flex;
+  flex-direction: column;
+  padding-top: var(--spacing-md);
+}
+
+.modal__section,
+.modal__section-check {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -98,26 +133,25 @@ body {
   padding: var(--spacing-md) 0;
 }
 
-.modal__subtitle {
-  font: var(--font-subtitle);
-  color: var(--text-title);
-}
-
-.modal__section label {
+.modal__input-radio {
   display: block;
   font: var(--font-body);
   color: var(--text-body);
   border: 2px solid var(--deco-modal);
   padding: var(--spacing-sm);
   border-radius: var(--radius-md);
-  transition: 0.3s;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  background-color: var(--bg-card);
 }
 
-label:hover {
+.modal__input-radio:hover {
   transform: scale(1.1);
+  border-color: var(--clr-deco);
+  color: var(--text-title);
 }
 
-label.active {
+.modal__input-radio.active {
   background: var(--clr-deco);
   color: var(--white);
 }
@@ -130,29 +164,80 @@ label.active {
   height: 0;
 }
 
-input:focus-visible + label {
+input:focus-visible + .modal__input-radio {
   outline: 2px solid var(--clr-deco);
+  border: 2px solid var(--clr-deco);
   outline-offset: 2px;
+  transform: scale(1.1);
 }
 
-@media (max-width: 400px) {
-  .btn__accessibility {
-    width: 36px;
-    height: 36px;
+.modal__section-check {
+  justify-content: flex-start;
+  padding: 0;
+  padding-bottom: var(--spacing-sm);
+}
+
+.modal__label-checkbox {
+  display: flex;
+  align-items: center;
+  font: var(--font-body);
+  color: var(--text-body);
+  cursor: pointer;
+  gap: var(--spacing-sm);
+}
+
+input[type="checkbox"] {
+  appearance: none;
+}
+
+.modal__label-checkbox::before {
+  display: inline-block;
+  content: "";
+  border-radius: 50%;
+  width: 0.5rem;
+  height: 0.5rem;
+  outline: 2px solid var(--clr-deco);
+  background-color: var(--bg-card);
+  border: 4px solid var(--bg-card);
+}
+
+input[type="checkbox"]:checked + .modal__label-checkbox::before {
+  box-shadow: inset 0 0 0 20px var(--clr-deco);
+}
+
+input[type="checkbox"]:focus-visible + .modal__label-checkbox:before {
+  outline: 2px solid var(--clr-deco);
+  outline-offset: 4px;
+  border-color: var(--clr-deco);
+}
+
+.modal__btn-reset {
+  font: var(--font-body);
+  font-weight: bold;
+  background-color: var(--bg-card);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: var(--spacing-sm);
+  box-shadow: var(--card-shadow);
+  color: var(--text-title);
+  transition: all 0.3s ease;
+}
+
+.modal__btn-reset:hover {
+  background: var(--clr-deco);
+}
+
+@media (max-width: 25rem) {
+  .modal__btn-open {
+    width: 2.25rem;
+    height: 2.25rem;
   }
 
-  .btn__accessibility::after {
+  .modal__btn-open::after {
     display: none;
   }
 
-  .modal {
-    max-width: 300px;
-  }
-
-  .modal__section {
-    display: flex;
-    justify-content: start;
-    flex-wrap: wrap;
-    gap: 8px;
+  .modal__accessibility {
+    width: 90%;
   }
 }
